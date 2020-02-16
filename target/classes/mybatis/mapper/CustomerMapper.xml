@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ch.demo.mapper.CustomerMapper">
+    <select id="queryList" resultType="Customer">
+        select * from pipi
+    </select>
+    <insert id="add" parameterType="Customer">
+        insert into pipi (username,age,address,avatar,sex,type) values (#{username},#{age},#{address},#{avatar},#{sex},#{type})
+    </insert>
+    <delete id="delete" parameterType="int">
+        delete from pipi where id=#{id}
+    </delete>
+    <update id="update" parameterType="Customer">
+        update pipi set username= #{username},age= #{age},address=#{address},avatar=#{avatar},sex=#{sex},type=#{type} where id=#{id}
+    </update>
+    <select id="findByIf" resultType="Customer" parameterType="map">
+        select * from pipi
+        <where>
+            <if test="username !=null ">
+                username like #{username}
+            </if>
+            <if test="address !=null " >
+              and  address like #{address}
+            </if>
+        </where>
+    </select>
+</mapper>
