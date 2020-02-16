@@ -2,4 +2,4 @@
 
 前后端分离的crud
 
-![](\img\1.png)
+![](https://github.com/caohao1030/springboot_vue_crud/blob/master/img/1.png?raw=true)
